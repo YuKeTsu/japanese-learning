@@ -1250,7 +1250,7 @@ function checkAnswer() {
     $.result.innerHTML = '<div class="result-correct">✅ 正确！<span class="result-hint">即将进入下一题...</span></div>';
     setTimeout(() => { _locked = false; handleNext(); }, 800);
   } else {
-    const correctAnswer = state.question.numValue !== undefined ? state.question.cn : state.question.jp;
+    const correctAnswer = (state.question.numValue !== undefined || $.reverseMode.checked) ? state.question.cn : state.question.jp;
     $.result.innerHTML = `<div class="result-wrong">❌ 错误<span class="result-answer">${correctAnswer}</span></div>`;
     $.answer.focus();
   }
