@@ -398,10 +398,13 @@ canvas[style*="position: fixed"] {
                     <label class="multiselect-option"><input type="checkbox" value="lesson_3" class="lesson-chk"> 第3课单词</label>
                     <label class="multiselect-option"><input type="checkbox" value="lesson_4" class="lesson-chk"> 第4课单词</label>
                     <label class="multiselect-option"><input type="checkbox" value="lesson_5" class="lesson-chk"> 第5课单词</label>
+                    <label class="multiselect-option"><input type="checkbox" value="lesson_6" class="lesson-chk"> 第6课单词</label>
                     <label class="multiselect-option"><input type="checkbox" value="numbers_100" class="lesson-chk"> 百以内数字</label>
                     <label class="multiselect-option"><input type="checkbox" value="numbers_over_100" class="lesson-chk"> 百以外数字</label>
                     <label class="multiselect-option"><input type="checkbox" value="culture_geo" class="lesson-chk"> 国、人、语、大陆</label>
+                    <label class="multiselect-option"><input type="checkbox" value="lesson_month" class="lesson-chk"> 月份</label>
                     <label class="multiselect-option"><input type="checkbox" value="week_days" class="lesson-chk"> 星期~</label>
+                    <label class="multiselect-option"><input type="checkbox" value="lesson_date" class="lesson-chk"> 日期</label>
                   <label class="multiselect-option"><input type="checkbox" value="hours" class="lesson-chk"> 小时</label>
                   <label class="multiselect-option"><input type="checkbox" value="minutes" class="lesson-chk"> 分钟</label>
                   <label class="multiselect-option"><input type="checkbox" value="time_terms" class="lesson-chk"> 时间词汇</label>
@@ -723,6 +726,55 @@ const lessons = {
     {"jp":"こうべ","cn":"神户", "kanji":"神戸"},
     {"jp":"おはよう","cn":"你早"}
   ],
+  "lesson_6": [
+    {"jp":"らいげつ","cn":"下个月", "kanji":"来月"},
+    {"jp":"せんげつ","cn":"上个月", "kanji":"先月"},
+    {"jp":"よなか","cn":"午夜，半夜", "kanji":"夜中"},
+    {"jp":"ゆうべ","cn":"昨天晚上"},
+    {"jp":"コンサート","cn":"音乐会"},
+    {"jp":"クリスマス","cn":"圣诞节"},
+    {"jp":"たんじょうび","cn":"生日", "kanji":"誕生日"},
+    {"jp":"こどものひ","cn":"儿童节", "kanji":"こどもの日"},
+    {"jp":"なつやすみ","cn":"暑假", "kanji":"夏休み"},
+    {"jp":"こうつうきかん","cn":"交通工具", "kanji":"交通機関"},
+    {"jp":"しんかんせん","cn":"新干线", "kanji":"新幹線"},
+    {"jp":"ひこうき","cn":"飞机", "kanji":"飛行機"},
+    {"jp":"フェリー","cn":"渡轮"},
+    {"jp":"でんしゃ","cn":"电车", "kanji":"電車"},
+    {"jp":"バス","cn":"公共汽车"},
+    {"jp":"タクシー","cn":"出租车"},
+    {"jp":"びじゅつかん","cn":"美术馆", "kanji":"美術館"},
+    {"jp":"アパート","cn":"公寓"},
+    {"jp":"うち","cn":"家"},
+    {"jp":"プール","cn":"游泳池"},
+    {"jp":"ともだち","cn":"朋友", "kanji":"友達"},
+    {"jp":"おとうと","cn":"弟弟", "kanji":"弟"},
+    {"jp":"いきます","cn":"去", "kanji":"行きます"},
+    {"jp":"かえります","cn":"回来，回去", "kanji":"帰ります"},
+    {"jp":"きます","cn":"来", "kanji":"来ます"},
+    {"jp":"たしか","cn":"好像是，大概；的确"},
+    {"jp":"まっすぐ","cn":"径直，笔直"},
+    {"jp":"いっしょに","cn":"一起"},
+    {"jp":"さとう","cn":"佐藤", "kanji":"佐藤"},
+    {"jp":"ペキン","cn":"北京", "kanji":"北京"},
+    {"jp":"アメリカ","cn":"美国"},
+    {"jp":"かんこく","cn":"韩国", "kanji":"韓国"},
+    {"jp":"フランス","cn":"法国"},
+    {"jp":"ひろしま","cn":"广岛", "kanji":"広島"},
+    {"jp":"きょうと","cn":"京都", "kanji":"京都"},
+    {"jp":"ほっかいどう","cn":"北海道", "kanji":"北海道"},
+    {"jp":"はこね","cn":"箱根", "kanji":"箱根"},
+    {"jp":"ぎんざ","cn":"银座", "kanji":"銀座"},
+    {"jp":"しぶや","cn":"涩谷", "kanji":"渋谷"},
+    {"jp":"しんじゅく","cn":"新宿", "kanji":"新宿"},
+    {"jp":"のぞみ","cn":"希望号(新干线的名称)"},
+    {"jp":"ひかり","cn":"光号(新干线的名称)"},
+    {"jp":"こだま","cn":"回声号(新干线的名称)"},
+    {"jp":"おつかれさまでした","cn":"够累的", "kanji":"お疲れ様でした"},
+    {"jp":"おさきにしつれいします","cn":"我先走了，我先告辞了", "kanji":"お先に失礼します"},
+    {"jp":"あるいて","cn":"步行", "kanji":"歩いて"},
+    {"jp":"たいへんですね","cn":"真不容易，够受的，不得了", "kanji":"大変ですね"}
+  ],
   "culture_geo": [
     {"jp":"ちゅうごく","cn":"中国", "kanji":"中国"},
     {"jp":"にほん","cn":"日本", "kanji":"日本"},
@@ -921,6 +973,54 @@ const lessons = {
     {"jp":"らいねん","cn":"明年", "kanji":"来年"},
     {"jp":"さらいねん","cn":"后年", "kanji":"さ来年"},
     {"jp":"まいとし","cn":"每年", "kanji":"毎年"}
+  ],
+  "lesson_date": [
+    {"jp":"ついたち","cn":"1号"},
+    {"jp":"ふつか","cn":"2号"},
+    {"jp":"みっか","cn":"3号"},
+    {"jp":"よっか","cn":"4号"},
+    {"jp":"いつか","cn":"5号"},
+    {"jp":"むいか","cn":"6号"},
+    {"jp":"なのか","cn":"7号"},
+    {"jp":"ようか","cn":"8号"},
+    {"jp":"ここのか","cn":"9号"},
+    {"jp":"とおか","cn":"10号"},
+    {"jp":"じゅういちにち","cn":"11号"},
+    {"jp":"じゅうににち","cn":"12号"},
+    {"jp":"じゅうさんにち","cn":"13号"},
+    {"jp":"じゅうよっか","cn":"14号"},
+    {"jp":"じゅうごにち","cn":"15号"},
+    {"jp":"じゅうろくにち","cn":"16号"},
+    {"jp":"じゅうしちにち","cn":"17号"},
+    {"jp":"じゅうはちにち","cn":"18号"},
+    {"jp":"じゅうくにち","cn":"19号"},
+    {"jp":"はつか","cn":"20号"},
+    {"jp":"にじゅういちにち","cn":"21号"},
+    {"jp":"にじゅうににち","cn":"22号"},
+    {"jp":"にじゅうさんにち","cn":"23号"},
+    {"jp":"にじゅうよっか","cn":"24号"},
+    {"jp":"にじゅうごにち","cn":"25号"},
+    {"jp":"にじゅうろくにち","cn":"26号"},
+    {"jp":"にじゅうしちにち","cn":"27号"},
+    {"jp":"にじゅうはちにち","cn":"28号"},
+    {"jp":"にじゅうくにち","cn":"29号"},
+    {"jp":"さんじゅうにち","cn":"30号"},
+    {"jp":"さんじゅういちにち","cn":"31号"}
+  ],
+  "lesson_month": [
+    {"jp":"いちがつ","cn":"1月", "kanji":"1月"},
+    {"jp":"にがつ","cn":"2月", "kanji":"2月"},
+    {"jp":"さんがつ","cn":"3月", "kanji":"3月"},
+    {"jp":"しがつ","cn":"4月", "kanji":"4月"},
+    {"jp":"ごがつ","cn":"5月", "kanji":"5月"},
+    {"jp":"ろくがつ","cn":"6月", "kanji":"6月"},
+    {"jp":"しちがつ","cn":"7月", "kanji":"7月"},
+    {"jp":"はちがつ","cn":"8月", "kanji":"8月"},
+    {"jp":"くがつ","cn":"9月", "kanji":"9月"},
+    {"jp":"じゅうがつ","cn":"10月", "kanji":"10月"},
+    {"jp":"じゅういちがつ","cn":"11月", "kanji":"11月"},
+    {"jp":"じゅうにがつ","cn":"12月", "kanji":"12月"},
+    {"jp":"なんがつ","cn":"何月", "kanji":"何月"}
   ]
 };
 
