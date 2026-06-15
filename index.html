@@ -1028,9 +1028,9 @@ const StaticWordEngine = {
     $.progress.innerText = `本轮进度：${this.questionCount} / ${this.totalInRound}`;
 
     if ($.reverseMode.checked) {
-      $.question.innerText = state.question.kanji || state.question.jp;
-      $.kanjiDisplay.innerText = $.showKanji.checked && state.question.kanji
-        ? "假名：" + state.question.jp : "";
+      $.question.innerText = "假名：" + state.question.jp;
+      $.kanjiDisplay.innerText = $.showKanji.checked
+        ? "汉字：" + (state.question.kanji || "无") : "";
     } else {
       $.question.innerText = "单词：" + state.question.cn;
       $.kanjiDisplay.innerText = $.showKanji.checked
@@ -1299,8 +1299,8 @@ function init() {
     if (state.mode === 'exercise') {
       $.kanjiDisplay.innerText = $.showKanji.checked ? state.question.kanji : "";
     } else if ($.reverseMode.checked) {
-      $.kanjiDisplay.innerText = $.showKanji.checked && state.question.kanji
-        ? "假名：" + state.question.jp : "";
+      $.kanjiDisplay.innerText = $.showKanji.checked
+        ? "汉字：" + (state.question.kanji || "无") : "";
     } else {
       $.kanjiDisplay.innerText = $.showKanji.checked
         ? "汉字：" + (state.question.kanji || "无") : "";
