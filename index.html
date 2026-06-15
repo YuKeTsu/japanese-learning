@@ -370,6 +370,9 @@ button:active {
     gap: 8px;
   }
 }
+canvas[style*="position: fixed"] {
+  background: transparent !important;
+}
 </style>
 </head>
 <body>
@@ -408,7 +411,7 @@ button:active {
                 <input type="checkbox" id="randomMode" checked>乱序
             </label>
             <label class="random-label">
-                <input type="checkbox" id="reverseMode">反向（汉字→中文）
+                <input type="checkbox" id="showKanji" checked>显示汉字
             </label>
         </div>
 
@@ -423,7 +426,7 @@ button:active {
 
         <div class="global-controls">
             <label class="random-label">
-                <input type="checkbox" id="showKanji" checked>显示汉字
+                <input type="checkbox" id="reverseMode">反向（汉字→中文）
             </label>
         </div>
     </div>
@@ -1026,7 +1029,7 @@ const StaticWordEngine = {
 
     if ($.reverseMode.checked) {
       $.question.innerText = state.question.kanji || state.question.jp;
-      $.kanjiDisplay.innerText = state.question.kanji
+      $.kanjiDisplay.innerText = $.showKanji.checked && state.question.kanji
         ? "假名：" + state.question.jp : "";
     } else {
       $.question.innerText = "单词：" + state.question.cn;
@@ -1295,7 +1298,10 @@ function init() {
     if (!state.question) return;
     if (state.mode === 'exercise') {
       $.kanjiDisplay.innerText = $.showKanji.checked ? state.question.kanji : "";
-    } else if (!$.reverseMode.checked) {
+    } else if ($.reverseMode.checked) {
+      $.kanjiDisplay.innerText = $.showKanji.checked && state.question.kanji
+        ? "假名：" + state.question.jp : "";
+    } else {
       $.kanjiDisplay.innerText = $.showKanji.checked
         ? "汉字：" + (state.question.kanji || "无") : "";
     }
